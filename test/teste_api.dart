@@ -12,9 +12,7 @@ void main() {
     api.onInit();
   });
 
-  // ============================================================
   // 10 - TESTE: LISTAR MÚSICAS
-  // ============================================================
 
   test('GET /musicas - deve listar músicas', () async {
     final response = await api.listarMusicas();
@@ -36,9 +34,7 @@ void main() {
     }
   });
 
-  // ============================================================
-  // 11 - TESTE: BUSCAR MÚSICA POR ID
-  // ============================================================
+  // TESTE: BUSCAR MÚSICA POR ID
 
   test('GET /musicas/{id} - deve buscar música por ID', () async {
     const id = 1;
@@ -58,9 +54,7 @@ void main() {
     expect(response.body!.id, id);
   });
 
-  // ============================================================
-  // 11 - TESTE: ID INEXISTENTE
-  // ============================================================
+  // TESTE: ID INEXISTENTE
 
   test('GET /musicas/{id} - deve retornar 404 para ID inexistente', () async {
     const idInexistente = 999999;
@@ -71,9 +65,7 @@ void main() {
     expect(response.statusCode, 404);
   });
 
-  // ============================================================
   // 12 - TESTE: CADASTRAR MÚSICA
-  // ============================================================
 
   test('POST /musicas - deve cadastrar uma música', () async {
     final musica = Musica(
@@ -99,9 +91,7 @@ void main() {
     expect(response.body!.id, isNot(0));
   });
 
-  // ============================================================
   // 13 - TESTE: ATUALIZAR MÚSICA
-  // ============================================================
 
   test('PUT /musicas/{id} - deve atualizar uma música', () async {
     const id = 1;
@@ -133,9 +123,7 @@ void main() {
     expect(response.body!.ano, 2026);
   });
 
-  // ============================================================
   // 14 - TESTE: EXCLUIR MÚSICA
-  // ============================================================
 
   test('DELETE /musicas/{id} - deve excluir uma música', () async {
     // Primeiro cadastramos uma música para não apagar
@@ -169,9 +157,7 @@ void main() {
     expect(consulta.statusCode, 404);
   });
 
-  // ============================================================
-  // 15 - TESTES DE ERRO
-  // ============================================================
+  // TESTES DE ERRO
 
   // Música inexistente
   test(
